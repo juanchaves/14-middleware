@@ -18,6 +18,7 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+  // This method creates the options template with handlebars from the information filtered from all the authors and categories, so the user can select by author or category.
   articleView.populateFilters = function() {
     var options;
     var template = Handlebars.compile($('#option-template').text());
@@ -37,6 +38,8 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+  // This method filters depending on what the user selects it's
+  // filters to be from the options (category or author).
   articleView.handleFilters = function() {
     $('#filters').one('change', 'select', function() {
       var resource = this.id.replace('-filter', '');
@@ -86,6 +89,7 @@
    }; */
 
   // COMMENT: What does this method do?  What is it's execution path?
+  //This method finds the element with the articles Id, shows it, selects its siblings(elements) and hides them, then appends e/a article to the DOM and calls populateFilters & handleFilters.
   articleView.index = function(articles) {
     $('#articles').show().siblings().hide();
 
